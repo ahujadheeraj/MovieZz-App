@@ -4,7 +4,7 @@ var request = require("request");
 app.set("view engine","ejs");
 app.use(express.static("public"));
 
-var port = process.env.port || 2200;
+var port = process.env.PORT || 2200;
 
 app.get("/",function(req,res){
     res.render("homepage");
