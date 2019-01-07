@@ -4,6 +4,8 @@ var request = require("request");
 app.set("view engine","ejs");
 app.use(express.static("public"));
 
+var port = process.env.port || 2200;
+
 app.get("/",function(req,res){
     res.render("homepage");
 })
@@ -23,6 +25,6 @@ app.get("/movie",function(req,res){
     });
 });
 
-app.listen(2200,function(req,res){
+app.listen(port,function(req,res){
     console.log("Movie Search Started!!!");
 })
