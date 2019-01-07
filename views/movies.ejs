@@ -1,0 +1,56 @@
+<html>
+<link>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+          crossorigin="anonymous">
+</head>
+
+
+<body id="m_body">
+
+<div class="container">
+    <div class="container jumbotron">
+    <h1>The Movies page!!!</h1>
+        <br>
+
+        <div class="container jumbotron">
+
+            <a id ="back" class="btn btn-info" href="/">Go back <i class="fas fa-arrow-alt-circle-left"></i></a>
+
+            <br>
+            <br>
+        </div>
+    </div>
+
+    <br>
+
+    <% if(data["Error"]){%>
+    <div id="error_page">
+        Oops!!! No movie found with this searched Name!
+    </div>
+
+        <%  }  %>
+
+    <% if(data["Search"]){data["Search"].forEach(function(movie){ %>
+
+        <div class="card">
+            <img class="card-img-top" src="<%= movie['Poster'] %>" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title"><%= movie['Title'] %></h5>
+                <p class="card-text"><li> <%= movie['Year'] %></li>
+                <li> <%= movie['Type'] %></li></p>
+                <a href="https://www.google.com/search?q=<%= movie['Title'] %>" class="btn btn-success btn-lg btn-block"" id="info">Search the WEB</a>
+            </div>
+        </div>
+
+    <% }) }%>
+
+
+</div>
+
+</body>
+
+</html>
